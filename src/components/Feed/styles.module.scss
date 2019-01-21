@@ -1,0 +1,68 @@
+@import "../../config/variables";
+
+.feed {
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: $max-page-width;
+  margin: 50px auto;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .backImage {
+    width: 100%;
+    max-height: 700px;
+  }
+
+  .column {
+    margin : 30px auto;
+    .columnText {
+      margin: 30px auto;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      color: #2C1951;
+    }
+    .box{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      .boxItem{
+        flex-direction: column;
+        .boxImg{
+          margin: 0 10px;
+          max-width: 350px;
+        }
+        .mImg{
+          margin: 0 10px;
+          max-width: 400px;
+        }
+        .boxTitle{
+          margin: 10px 10px;
+          font-size: 20px;
+          font-weight: bold;
+          color: #2C1951;
+        }
+        .boxSubtitle{
+          max-width: 350px;
+          margin: 0 10px;
+          font-size: 16px;
+          color: #9CA1AE;
+        }
+        .boxAuthor{
+          margin: 20px 10px;
+          font-size: 16px;
+          color: $selectedColor;
+        }
+      }
+    }
+  }
+}

@@ -1,16 +1,8 @@
 import React from 'react'
 import styles from './styles.module.scss'
-import GoogleLogin from 'react-google-login'
 import FacebookLogin from 'react-facebook-login'
-import LogoFacebook from 'react-ionicons/lib/LogoFacebook';
+import PropTypes from 'prop-types'
 
-
-const responseGoogle = response => {
-    console.log(response)
-}
-const responseFacebook = (response) => {
-    console.log(response);
-}
 
 const Auth = (props, context) => (
     <main className={styles.auth}>
@@ -24,20 +16,12 @@ const Auth = (props, context) => (
         </div>
         <div className={styles.column}>
             <FacebookLogin
-                appId=""
+                appId="2174920106102631"
                 fields="name,email,picture"
-                callback={responseFacebook}
+                callback={props.action === 'login' ? props.handleFacebookLogin : props.handleFacebookSignup}
                 cssClass={styles.loginButton}
                 textButton={props.action === 'login' ? '페이스북으로 로그인' : '페이스북으로 회원가입'}
-                icon = {`fa-facebook`}
-            />
-            <GoogleLogin
-                clientId=""
-                className={styles.loginButton}
-                buttonText={props.action === 'login' ? '구글로 로그인' : '구글로 회원가입'}
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                icon = {true}
+                icon={`fa-facebook-square `}
             />
 
         </div>
@@ -49,6 +33,12 @@ const Auth = (props, context) => (
 
     </main>
 );
+
+Auth.propTypes = {
+    handleFacebookLogin: PropTypes.func.isRequired,
+    handleFacebookSignup: PropTypes.func.isRequired
+
+}
 
 const swipeLoginButton = props => {
     switch (props.action) {

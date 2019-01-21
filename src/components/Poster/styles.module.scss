@@ -1,0 +1,27 @@
+@import "../../config/variables";
+
+.poster{
+  display: flex;
+  width: $poster-width;
+  height: $poster-height;
+
+
+  .headerColumn{
+    .headerImg{
+      .headerTitle{
+
+      }
+      .headerSubtitle{
+
+      }
+    }
+  }
+  .bodyColumn{
+    .bodyColumnTitle{
+
+    }
+    .bodyColumnSubtitle{
+
+    }
+  }
+}

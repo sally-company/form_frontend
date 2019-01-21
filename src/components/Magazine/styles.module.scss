@@ -1,0 +1,72 @@
+@import "../../config/variables";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .backImage {
+    width: 100%;
+    max-height: 700px;
+  }
+
+  .column {
+    margin : 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .columnText {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      color: #2C1951;
+    }
+    .divider{
+      justify-content: center;
+      align-items: center;
+      width: 60px;
+      height: 2px;
+      background-color: $selectedColor;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+    .box{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      .boxItem{
+        flex-direction: column;
+        .boxImg{
+          margin: 0 10px;
+          max-width: 350px;
+        }
+        .mImg{
+          margin: 0 10px;
+          max-width: 400px;
+        }
+        .boxTitle{
+          margin: 10px 10px;
+          font-size: 20px;
+          font-weight: bold;
+          color: #2C1951;
+        }
+        .boxSubtitle{
+          max-width: 350px;
+          margin: 10px 10px;
+          font-size: 16px;
+          color: #9CA1AE;
+        }
+        .boxAuthor{
+          margin: 20px 10px;
+          font-size: 16px;
+          color: $selectedColor;
+        }
+      }
+    }
+  }
+}

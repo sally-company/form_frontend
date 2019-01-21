@@ -1,1 +1,75 @@
 @import "../../config/variables";
+
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .column{
+    &:first-child {
+      margin: 40px 0;
+    }
+    &:last-child{
+      margin: 40px 0;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .topColumnText{
+      font-size: 50px;
+      color: $menuBgColor;
+      @include breakpoint(phone){
+        font-size: 35px;
+      }
+    }
+    .bottomSignupButton{
+
+    }
+  }
+  .whiteBox{
+    max-width: $max-page-width;
+    min-width: 700px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    @include boxBorder(no);
+    @include breakpoint(phone){
+       min-width: 350px;
+     }
+    @include breakpoint(tablet){
+      min-width: 450px;
+    }
+    .boxColumn{
+      margin: 15px 20px;
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .boxColumnText{
+        color: $menuBgColor;
+        margin-left: 20px;
+        width: 100px;
+        font-weight: bold;
+      }
+      .boxColumnInput{
+        height: 30px;
+        width: 200px;
+        @include boxBorder(no);
+        @include breakpoint(phone){
+          width: 120px;
+        }
+      }
+      .boxColumnRadio{
+
+      }
+      .boxColumnButton{
+
+      }
+      .boxColumnIntro{
+        width: 100%;
+      }
+    }
+  }
+}

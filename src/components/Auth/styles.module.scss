@@ -33,12 +33,24 @@
     }
     .loginButton{
       display: flex;
-      justify-content: center;
-      justify-items: center;
-      margin: 10px 0;
       width: 200px;
-      height: 50px;
+      height: 40px;
+      align-items: center;
+      background-color: #204889;
+      color: white;
+      justify-content: space-around;
+      margin-bottom: 25px;
       cursor: pointer;
+      border: 0;
+      font-size: $normal-font-size;
+      text-align: center;
+      i {
+        margin-right: 5px;
+      }
+      &:focus,
+      &:active {
+        outline: none;
+      }
     }
     .bottomColumnText{
       margin : 30px 0;

@@ -6,7 +6,8 @@ class Container extends Component{
 
     render() {
         return (
-           <Header/>
+           <Header {...this.props}
+           />
         );
     }
 
