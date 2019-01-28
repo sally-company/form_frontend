@@ -3,7 +3,16 @@ import axios from 'axios'
 
 //actions
 const SET_SALON = "SET_SALON"
+const SET_IMAGE = "UPLOAD_IMAGE"
+
 //action creators
+function setImage(image) {
+    return{
+        type : SET_IMAGE,
+        image
+    }
+
+}
 
 function setSalon(salon) {
     return{
@@ -13,6 +22,42 @@ function setSalon(salon) {
 }
 
 //api actions
+
+function uploadImage(image) {
+
+    const formData = new FormData();
+    formData.append('image', image);
+
+    return axios.post('/upload', {image})
+            .then(res => {
+                const {data} = res.data
+                console.log(data)
+                return { data: { link: "http://dummy_image_src.com" }};
+            })
+            .catch(err =>
+                console.log(err)
+            );
+
+
+    // return () =>{
+    //
+    //     axios.post('/users/', {image})
+    //         .then(res => {
+    //             const {data} = res.data
+    //             console.log(data)
+    //             return new Promise(
+    //                 (resolve, reject) => {
+    //                     resolve({ data: { link: "http://dummy_image_src.com" } });
+    //                 }
+    //             );
+    //         })
+    //         .catch(err =>
+    //             console.log(err)
+    //         );
+    //
+    // }
+
+}
 
 function getSalon() {
     return (dispatch) => {
@@ -30,10 +75,9 @@ function getSalon() {
     }
 }
 
-//initial stat
+//initial state
 
-const initialState = {
-}
+const initialState = {}
 
 //reducer
 
@@ -43,6 +87,8 @@ function reducer(state = initialState, action) {
 
         case SET_SALON :
             return applySetSalon(state, action)
+        case SET_IMAGE :
+            return applySetImage(state, action)
         default:
             return state
 
@@ -51,6 +97,15 @@ function reducer(state = initialState, action) {
 }
 
 //reducer functions
+function applySetImage(state, action) {
+    const {image} = action
+    return{
+        ...state,
+        image
+    }
+
+}
+
 function applySetSalon(state, action) {
 
     const  {salon} = action
@@ -62,7 +117,8 @@ function applySetSalon(state, action) {
 
 //exports
 const actionCreators= {
-    getSalon
+    getSalon,
+    uploadImage
 }
 
 export {actionCreators}

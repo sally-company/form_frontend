@@ -11,29 +11,56 @@ import Salon from 'components/Salon'
 import Magazine from 'components/Magazine'
 import Host from 'components/Host'
 import Profile from 'components/Profile'
+import SideDrawer from "components/SideDrawer"
+import Backdrop from "components/Backdrop"
 
 import './styles.module.scss';
 
-// class App extends Component {
-//     render() {
-//         return (
-//             <div className={styles.App}>
-//                 <Switch>
-//                     <Route exact path="/" render={() => "hello!"}></Route>
-//                     <Route path="/login" render={() => "Login!"}></Route>
-//                 </Switch>
-//                 <Footer/>
-//             </div>
-//         );
-//     }
-// }
+class App extends React.Component {
+    state = {
+        sideDrawerOpen: false
+    };
 
+    _drawerToggleClickHandler = () => {
+        this.setState((prevState) => {
+            return { sideDrawerOpen: !prevState.sideDrawerOpen };
+        })
+    };
 
-const App = props => [
-    <Header isLoggedIn={props.isLoggedIn} key = {1}/>,
-    props.isLoggedIn ? <PrivateRoutes key ={2}/> : <PublicRoutes key ={2}/>,
-    <Footer key = {3}/>
-];
+    _backdropClickHandler = () => {
+        this.setState({ sideDrawerOpen: false});
+    }
+
+    render() {
+        let backdrop;
+        if (this.state.sideDrawerOpen) {
+            backdrop = <Backdrop click={this._backdropClickHandler}/>
+        }
+
+        return (
+            <>
+                <Header
+                    isLoggedIn={this.props.isLoggedIn}
+                    drawerToggleClickHandler={this._drawerToggleClickHandler}
+                />
+                <SideDrawer isShow={this.state.sideDrawerOpen}/>
+                { backdrop }
+
+            { this.props.isLoggedIn && (
+                <>
+                    <PrivateRoutes/>
+                </>
+            )}
+            { !this.props.isLoggedIn && (
+                <>
+                    <PublicRoutes/>
+                </>
+
+            )}
+            </>
+        );
+    }
+}
 
 App.propTypes ={
     isLoggedIn: PropTypes.bool.isRequired
@@ -42,8 +69,8 @@ App.propTypes ={
 const PrivateRoutes = props => (
     <Switch>
         <Route exact path={`/`} component={Feed}></Route>
-        <Route path={`/login`} component={Feed}></Route>
-        <Route path={'/signup'} component = {Feed}></Route>
+        <Route path={`/login`} component={Auth}></Route>
+        <Route path={'/signup'} component = {Auth}></Route>
         <Route path={`/salon`} component={Salon}></Route>
         <Route path={`/magazine`} component={Magazine}></Route>
         <Route path={`/host`} component={Host}></Route>

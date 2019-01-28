@@ -1,70 +1,90 @@
 import React, {Component} from 'react'
-import styles from './styles.module.scss'
+import styled from 'styled-components'
+import MagazineCarouselItem from '../MagazineCarouselItem'
+import color from "../../config/_color";
+import device from "../../config/device";
+
 
 class Magazine extends Component {
 
     render() {
         return (
-            <div className={styles.container}>
-                <div className={styles.column}>
-                    <div className={styles.columnText}>
-                        금주의 매거진
-                    </div>
-                    <div className={styles.divider}></div>
-                    <div className={styles.box}>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/magazine1.png')} alt="" className={styles.mImg}/>
-                            <div className={styles.boxTitle}>예술가와 술</div>
-                            <div className={styles.boxSubtitle}>헤밍웨이의 모히또, 고흐의 압생트  ...</div>
-                            <div className={styles.boxAuthor}>By 최부영</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/magazine2.png')} alt="" className={styles.mImg}/>
-                            <div className={styles.boxTitle}>연예인의 책</div>
-                            <div className={styles.boxSubtitle}>걷는 사람 - 하정우, 계절을 너에게 배웠어 - ...</div>
-                            <div className={styles.boxAuthor}>By 최부영</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/magazine3.png')} alt="" className={styles.mImg}/>
-                            <div className={styles.boxTitle}>서울 책방 투어</div>
-                            <div className={styles.boxSubtitle}>서울의 책방 투어</div>
-                            <div className={styles.boxAuthor}>By 최부영</div>
-                        </div>
+            <Container>
+                <TextContainer>
+                    <RecommendText>전체 매거진</RecommendText>
+                </TextContainer>
+                <Divider/>
+                <MagazineColoum>
 
-                    </div>
-                </div>
-                <div className={styles.column}>
-                    <div className={styles.columnText}>
-                        전체 매거진
-                    </div>
-                    <div className={styles.divider}></div>
-                    <div className={styles.box}>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/magazine1.png')} alt="" className={styles.mImg}/>
-                            <div className={styles.boxTitle}>예술가와 술</div>
-                            <div className={styles.boxSubtitle}>헤밍웨이의 모히또, 고흐의 압생트  ...</div>
-                            <div className={styles.boxAuthor}>By 최부영</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/magazine2.png')} alt="" className={styles.mImg}/>
-                            <div className={styles.boxTitle}>연예인의 책</div>
-                            <div className={styles.boxSubtitle}>걷는 사람 - 하정우, 계절을 너에게 배웠어 - ...</div>
-                            <div className={styles.boxAuthor}>By 최부영</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/magazine3.png')} alt="" className={styles.mImg}/>
-                            <div className={styles.boxTitle}>서울 책방 투어</div>
-                            <div className={styles.boxSubtitle}>서울의 책방 투어</div>
-                            <div className={styles.boxAuthor}>By 최부영</div>
-                        </div>
+                    <MagazineContainer>
+                        <MagazineCarouselItem
+                            imageUrl={`images/magazine1.png`} title={`test`}
+                            subtitle={'subtitle'} creator={'최부영'}/>
+                    </MagazineContainer>
+                    <MagazineContainer>
+                        <MagazineCarouselItem
+                            imageUrl={`images/magazine1.png`} title={`test`}
+                            subtitle={'subtitle'} creator={'최부영'}/>
+                    </MagazineContainer>
+                    <MagazineContainer>
+                        <MagazineCarouselItem
+                            imageUrl={`images/magazine1.png`} title={`test`}
+                            subtitle={'subtitle'} creator={'최부영'}/>
+                    </MagazineContainer>
 
-                    </div>
-                </div>
-            </div>
+                </MagazineColoum>
+            </Container>
+
         );
     }
-    
+
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+const MagazineColoum = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+`
+const MagazineContainer = styled.div`
+  min-width: 350px;
+  margin: 0 20px;
+`
+
+const TextContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 5px;
+  
+  
+`
+const RecommendText = styled.span`
+  color: ${color.sleepyJet};
+  font-size: 35px;
+  font-weight: bold;
+  @media ${device.phone} {
+  font-size: 30px;
+  } 
+`
+const Divider = styled.div`
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 2px;
+      background-color: ${color.stellarAlmond};
+      margin-top: 10px;
+      margin-bottom: 30px;
+    
+`
 
 
 export default Magazine

@@ -1,1 +1,37 @@
 @import "../../config/variables";
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  .topColumn{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .profileImg{
+
+    }
+    .box{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+
+      .name{
+        font-size: 20px;
+        font-weight: bold;
+        color: $menuBgColor;
+        margin: 20px;
+      }
+      .editor{
+        font-size: 12px;
+        margin: 20px;
+      }
+
+    }
+  }
+}

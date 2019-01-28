@@ -5,7 +5,7 @@ import axios from 'axios'
 //actions
 
 const SAVE_TOKEN = 'SAVE_TOKEN'
-
+const GET_USER = 'GET_USER'
 //action creators
 
 function saveToken(token) {
@@ -15,6 +15,10 @@ function saveToken(token) {
         token
     }
 
+}
+
+function f() {
+    
 }
 
 //API actions
@@ -47,6 +51,7 @@ function facebookSignup(response) {
             .then(res => {
                 const user = res.data.user
                 if (user.userToken){
+                    console.log(sessionStorage)
                     localStorage.setItem('jwt', user.userToken)
                     dispatch(saveToken(user.userToken))
                 }
@@ -63,6 +68,7 @@ function facebookSignup(response) {
 //intitial state
 
 const initialState = {
+
     isLoggedIn: localStorage.getItem('jwt') ? true : false,
     token : localStorage.getItem('jwt')
 };

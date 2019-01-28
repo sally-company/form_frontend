@@ -2,14 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './styles.module.scss'
 import Loading from 'components/Loading'
+import HeaderImage from '../HeaderImage'
+import SalonCarousel from '../SalonCarousel'
+import MagazineCarousel from '../MagazineCarousel'
+import styled from 'styled-components'
+import device from '../../config/device'
+import color from "../../config/_color"
 
 const Feed = props => {
-    if (props.loading) {
-        return <LoadingSalon/>
-    } else if (props.salon) {
-        return <SalonPage {...props}/>
-    }
+    // if (props.loading) {
+    //     return <LoadingSalon/>
+    // } else if (props.salon) {
+    //     return <SalonPage {...props}/>
+    // }
 
+    return <SalonPage {...props}/>
 }
 
 const LoadingSalon = props => (
@@ -25,69 +32,75 @@ const RenderSalon = props => (
 
 const SalonPage = props => {
     return (
-        <div className={styles.container}>
-            <img src={require('images/bg_1.png')} alt="" className={styles.backImage}/>
-            <div className={styles.column}>
-                <div className={styles.columnText}>
-                    추천 살롱
-                </div>
-                <div className={styles.box}>
-                    <div className={styles.boxItem}>
-                        <img src={require('images/salon1.png')} alt="" className={styles.boxImg}/>
-                        <div className={styles.boxTitle}>[몽ː상]</div>
-                        <div className={styles.boxSubtitle}>영화, 책, 음악 그리고 사랑</div>
-                    </div>
-                    <div className={styles.boxItem}>
-                        <img src={require('images/salon2.png')} alt="" className={styles.boxImg}/>
-                        <div className={styles.boxTitle}>‘시’원하다.</div>
-                        <div className={styles.boxSubtitle}>매주 토요일 ‘시’원하다.</div>
-                    </div>
-                    <div className={styles.boxItem}>
-                        <img src={require('images/salon3.png')} alt="" className={styles.boxImg}/>
-                        <div className={styles.boxTitle}>하루키</div>
-                        <div className={styles.boxSubtitle}>무라카미 하루키를 조심하세요.</div>
-                    </div>
-                    <div className={styles.boxItem}>
-                        <img src={require('images/salon4.png')} alt="" className={styles.boxImg}/>
-                        <div className={styles.boxTitle}>일기</div>
-                        <div className={styles.boxSubtitle}>하루를 마감하는 글짓기</div>
-                    </div>
-
-                </div>
-            </div>
-            <div className={styles.column}>
-                <div className={styles.columnText}>
-                    금주의 매거진
-                </div>
-                <div className={styles.box}>
-                    <div className={styles.boxItem}>
-                        <img src={require('images/magazine1.png')} alt="" className={styles.mImg}/>
-                        <div className={styles.boxTitle}>예술가와 술</div>
-                        <div className={styles.boxSubtitle}>헤밍웨이의 모히또, 고흐의 압생트  ...</div>
-                        <div className={styles.boxAuthor}>By 최부영</div>
-                    </div>
-                    <div className={styles.boxItem}>
-                        <img src={require('images/magazine2.png')} alt="" className={styles.mImg}/>
-                        <div className={styles.boxTitle}>연예인의 책</div>
-                        <div className={styles.boxSubtitle}>걷는 사람 - 하정우, 계절을 너에게 배웠어 - ...</div>
-                        <div className={styles.boxAuthor}>By 최부영</div>
-                    </div>
-                    <div className={styles.boxItem}>
-                        <img src={require('images/magazine3.png')} alt="" className={styles.mImg}/>
-                        <div className={styles.boxTitle}>서울 책방 투어</div>
-                        <div className={styles.boxSubtitle}>서울의 책방 투어</div>
-                        <div className={styles.boxAuthor}>By 최부영</div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
+        <Container>
+            <HeaderContainer>
+                <HeaderImage/>
+            </HeaderContainer>
+            <TextContainer>
+                <RecommendText>추천 살롱</RecommendText>
+            </TextContainer>
+            <Divider/>
+            <SalonCarousel/>
+            <TextContainer>
+                <RecommendText>추천 매거진</RecommendText>
+            </TextContainer>
+            <Divider/>
+            <MagazineCarousel/>
+        </Container>
     )
 }
 
 Feed.propTypes = {
     loading: PropTypes.bool.isRequired
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const HeaderContainer = styled.div`
+  width: 100%;
+  height: 600px;
+  
+  @media ${device.tablet} {
+  height : 500px
+  }
+  
+  @media ${device.phone} {
+  height : 400px
+  }  
+`
+
+const TextContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 5px;
+  
+  
+`
+const RecommendText = styled.span`
+  color: ${color.sleepyJet};
+  font-size: 35px;
+  font-weight: bold;
+  @media ${device.phone} {
+  font-size: 30px;
+  } 
+`
+const Divider = styled.div`
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 2px;
+      background-color: ${color.stellarAlmond};
+      margin-top: 10px;
+      margin-bottom: 30px;
+    
+`
 
 export default Feed

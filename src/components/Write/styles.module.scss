@@ -1,0 +1,16 @@
+@import "../../config/variables";
+
+.container{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: white;
+  min-height: 70vh;
+  width: 100%;
+ &:last-child{
+   bottom: 0;
+ }
+  .textArea{
+    display: flex;
+  }
+}

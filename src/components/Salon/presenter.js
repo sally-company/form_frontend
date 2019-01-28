@@ -1,127 +1,102 @@
 import React, {Component} from 'react'
-import styles from './styles.module.scss'
+import styled from 'styled-components'
+import SalonCarouselItem from '../SalonCarouselItem'
+import device from "../../config/device";
+import color from "../../config/_color";
 
 class Salon extends Component {
 
+
+
     render() {
         return (
-            <div className={styles.container}>
-                <div className={styles.column}>
-                    <div className={styles.columnText}>
-                        추천 살롱
-                    </div>
-                    <div className={styles.divider}>
-                    </div>
-                    <div className={styles.box}>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon1.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>[몽ː상]</div>
-                            <div className={styles.boxSubtitle}>영화, 책, 음악 그리고 사랑</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon2.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>‘시’원하다.</div>
-                            <div className={styles.boxSubtitle}>매주 토요일 ‘시’원하다.</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon3.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>하루키</div>
-                            <div className={styles.boxSubtitle}>무라카미 하루키를 조심하세요.</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon4.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>일기</div>
-                            <div className={styles.boxSubtitle}>하루를 마감하는 글짓기</div>
-                        </div>
+            <Container>
+                <TextContainer>
+                    <RecommendText>모집중인 살롱</RecommendText>
+                </TextContainer>
+                <Divider/>
+                <SalonColoum>
 
-                    </div>
-                </div>
+                    <SalonContainer>
+                        <SalonCarouselItem imageUrl={`images/magazine1.png`} title={`test`} subtitle={'subtitle'} />
+                    </SalonContainer>
+                    <SalonContainer>
+                        <SalonCarouselItem imageUrl={`images/magazine1.png`} title={`test`} subtitle={'subtitle'} />
+                    </SalonContainer>
+                    <SalonContainer>
+                        <SalonCarouselItem imageUrl={`images/magazine1.png`} title={`test`} subtitle={'subtitle'} />
+                    </SalonContainer>
 
-                <div className={styles.column}>
-                    <div className={styles.columnText}>
-                        모집 중인 살롱
-                    </div>
-                    <div className={styles.divider}></div>
-                    <div className={styles.box}>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon1.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>[몽ː상]</div>
-                            <div className={styles.boxSubtitle}>영화, 책, 음악 그리고 사랑</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon2.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>‘시’원하다.</div>
-                            <div className={styles.boxSubtitle}>매주 토요일 ‘시’원하다.</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon3.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>하루키</div>
-                            <div className={styles.boxSubtitle}>무라카미 하루키를 조심하세요.</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon4.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>일기</div>
-                            <div className={styles.boxSubtitle}>하루를 마감하는 글짓기</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon1.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>[몽ː상]</div>
-                            <div className={styles.boxSubtitle}>영화, 책, 음악 그리고 사랑</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon2.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>‘시’원하다.</div>
-                            <div className={styles.boxSubtitle}>매주 토요일 ‘시’원하다.</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon3.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>하루키</div>
-                            <div className={styles.boxSubtitle}>무라카미 하루키를 조심하세요.</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon4.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>일기</div>
-                            <div className={styles.boxSubtitle}>하루를 마감하는 글짓기</div>
-                        </div>
+                </SalonColoum>
+                <TextContainer>
+                    <RecommendText>마감된 살롱</RecommendText>
+                </TextContainer>
+                <Divider/>
+                <SalonColoum>
 
+                    <SalonContainer>
+                        <SalonCarouselItem imageUrl={`images/magazine1.png`} title={`test`} subtitle={'subtitle'} />
+                    </SalonContainer>
+                    <SalonContainer>
+                        <SalonCarouselItem imageUrl={`images/magazine1.png`} title={`test`} subtitle={'subtitle'} />
+                    </SalonContainer>
+                    <SalonContainer>
+                        <SalonCarouselItem imageUrl={`images/magazine1.png`} title={`test`} subtitle={'subtitle'} />
+                    </SalonContainer>
 
-                    </div>
-                </div>
-
-                <div className={styles.column}>
-                    <div className={styles.columnText}>
-                        마감 살롱
-                    </div>
-                    <div className={styles.divider}></div>
-                    <div className={styles.box}>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon1.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>[몽ː상]</div>
-                            <div className={styles.boxSubtitle}>영화, 책, 음악 그리고 사랑</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon2.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>‘시’원하다.</div>
-                            <div className={styles.boxSubtitle}>매주 토요일 ‘시’원하다.</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon3.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>하루키</div>
-                            <div className={styles.boxSubtitle}>무라카미 하루키를 조심하세요.</div>
-                        </div>
-                        <div className={styles.boxItem}>
-                            <img src={require('images/salon4.png')} alt="" className={styles.boxImg}/>
-                            <div className={styles.boxTitle}>일기</div>
-                            <div className={styles.boxSubtitle}>하루를 마감하는 글짓기</div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        );
+                </SalonColoum>
+            </Container>
+        )
     }
     
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+const SalonColoum = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+`
+const SalonContainer = styled.div`
+  min-width: 350px;
+  margin: 0 20px;
+`
+
+const TextContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 5px;
+  
+  
+`
+const RecommendText = styled.span`
+  color: ${color.sleepyJet};
+  font-size: 35px;
+  font-weight: bold;
+  @media ${device.phone} {
+  font-size: 30px;
+  } 
+`
+const Divider = styled.div`
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 2px;
+      background-color: ${color.stellarAlmond};
+      margin-top: 10px;
+      margin-bottom: 30px;
+    
+`
+
 
 
 export default Salon
