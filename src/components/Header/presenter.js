@@ -103,14 +103,14 @@ const Menu = (props) => {
   `;
   return (
     <List>
-      <Item current={props.pathname === "/salon"}>
-        <SLink to="/salon">Salon</SLink>
+      <Item>
+        <SLink to="/salon" current={props.pathname === "/salon"}>Salon</SLink>
       </Item>
-      <Item current={props.pathname === "/magazine"}>
-        <SLink to="/magazine">Magazine</SLink>
+      <Item>
+        <SLink to="/magazine" current={props.pathname === "/magazine"}>Magazine</SLink>
       </Item>
-      <Item current={props.pathname === "/host"}>
-        <SLink to="/host">Host</SLink>
+      <Item>
+        <SLink to="/host" current={props.pathname === "/host"}>Host</SLink>
       </Item>
     </List>
   );
@@ -271,30 +271,33 @@ const Profile = (props) => {
   );
 };
 
-export default withRouter(({ drawerToggleClickHandler, isLoggedIn, location: { pathname } }) => (
-  <Header>
-    <DrawerToggleButtonContainer>
-      <DrawerToggleButton click={drawerToggleClickHandler}/>
-    </DrawerToggleButtonContainer>
-    <LogoContainer>
-      <SLink to="/">
-        <Logo src={ require("images/logo.png") } alt={`logo`} />
-      </SLink>
-    </LogoContainer>
-      {isLoggedIn && (
-        <MenuContainer>
-          <Menu pathname={pathname} />
-          <Profile username={"todo"}/>
-        </MenuContainer>
-      )}
-      {!isLoggedIn && (
-        <MenuContainer>
-          <Menu pathname={pathname} />
-          <LoginSignUpButton />
-        </MenuContainer>
-      )}
-  </Header>
-));
+export default withRouter(({ drawerToggleClickHandler, isLoggedIn, location: { pathname } }) => {
+  console.log(pathname);
+  return (
+    <Header>
+      <DrawerToggleButtonContainer>
+        <DrawerToggleButton click={drawerToggleClickHandler}/>
+      </DrawerToggleButtonContainer>
+      <LogoContainer>
+        <SLink to="/">
+          <Logo src={ require("images/logo.png") } alt={`logo`} />
+        </SLink>
+      </LogoContainer>
+        {isLoggedIn && (
+          <MenuContainer>
+            <Menu pathname={pathname} />
+            <Profile username={"todo"}/>
+          </MenuContainer>
+        )}
+        {!isLoggedIn && (
+          <MenuContainer>
+            <Menu pathname={pathname} />
+            <LoginSignUpButton />
+          </MenuContainer>
+        )}
+    </Header>
+  )
+});
 
 
 /* <Route path={`/login`} component={Feed}></Route>

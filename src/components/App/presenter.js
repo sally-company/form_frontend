@@ -43,7 +43,10 @@ class App extends React.Component {
                     isLoggedIn={this.props.isLoggedIn}
                     drawerToggleClickHandler={this._drawerToggleClickHandler}
                 />
-                <SideDrawer isShow={this.state.sideDrawerOpen}/>
+                <SideDrawer 
+                    isShow={this.state.sideDrawerOpen}
+                    drawerToggleClickHandler={this._drawerToggleClickHandler}
+                />
                 { backdrop }
 
             { this.props.isLoggedIn && (

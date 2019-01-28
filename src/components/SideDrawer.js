@@ -45,18 +45,21 @@ const SlideDrawer = props => {
     return (
       <Container isOpen={props.isShow}>
         <Content>
-            <SLink to="/">
-                <Logo src={ require("images/logo.png") } alt={`logo`} />
+            <SLink to="/" onClick={props.drawerToggleClickHandler}>
+                <Logo 
+                    src={ require("images/logo.png") }
+                    alt={`logo`} 
+                />
             </SLink>
             <List>
             <Item>
-                <SLink to="/salo">Salon</SLink>
+                <SLink to="/salo" onClick={props.drawerToggleClickHandler}>Salon</SLink>
             </Item>
             <Item>
-                <SLink to="/magazine">Magazine</SLink>
+                <SLink to="/magazine" onClick={props.drawerToggleClickHandler}>Magazine</SLink>
             </Item>
             <Item>
-                <SLink to="/host">Host</SLink>
+                <SLink to="/host" onClick={props.drawerToggleClickHandler}>Host</SLink>
             </Item>
             </List>
         </Content>
