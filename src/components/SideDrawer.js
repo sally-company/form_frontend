@@ -1,7 +1,6 @@
 import React from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
-import device from "../config/device";
 
 const Container = styled.div`
     width: 40%;
