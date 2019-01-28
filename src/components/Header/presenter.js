@@ -223,10 +223,11 @@ const DrawerToggleButton = props => {
 
 const Profile = (props) => {
   const Container = styled.div`
-    display: flex;    
+    display: flex;
     height: 100%;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
   `;
 
   const Image = styled.img`
@@ -262,11 +263,14 @@ const Profile = (props) => {
       }
     }
   `
-  
   return (
     <Container>
-      <Text>{props.username}</Text>
-      <Image src={ require("images/icon_avatar.png") } />
+      <SLink to="/profile" current={props.pathname === "/profile"}>
+        <Text>{props.username}</Text>
+      </SLink>
+      <SLink to="/profile" current={props.pathname === "/profile"}>
+        <Image src={ require("images/icon_avatar.png") } />
+      </SLink>
     </Container>
   );
 };
@@ -286,13 +290,15 @@ export default withRouter(({ drawerToggleClickHandler, isLoggedIn, location: { p
         {isLoggedIn && (
           <MenuContainer>
             <Menu pathname={pathname} />
-            <Profile username={"todo"}/>
+            <Profile username={"최최최"}/>
           </MenuContainer>
         )}
         {!isLoggedIn && (
           <MenuContainer>
             <Menu pathname={pathname} />
-            <LoginSignUpButton />
+            <SLink to="/login">
+              <LoginSignUpButton />
+            </SLink>
           </MenuContainer>
         )}
     </Header>
