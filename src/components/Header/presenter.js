@@ -117,14 +117,14 @@ const Menu = (props) => {
 }
 
 const LoginSignUpButton = (props) => {
-  const Button = styled.div`
+  const Button = styled.span`
     display: flex;
     justify-content: center;
     align-items: center;
     height: 40px;
-    width: 200px;
-    
-    margin-left: 61px;
+    width: 100%;
+    margin-left: 40px;
+    margin-right: 20px;
     font-size: 20px;
     color: #E6E6F3;
     &:hover {
@@ -138,22 +138,20 @@ const LoginSignUpButton = (props) => {
     @media ${device.phone} {
       & {
         font-size: 14px;
-        width: 150px;
-        margin-left: 0px;
+        margin:0 10px;
       }
     }
     @media ${device.tablet} {
       & {
         font-size: 16px;
         width: 180px;
-        margin-left: 0px;
+        margin-left: 30px;
       }
     }
     @media ${device.laptop} {
       & {
         font-size: 18px;
         width: 180px;
-        margin-left: 0px;
       }
     }
   `;
