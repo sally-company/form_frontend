@@ -27,7 +27,6 @@ const LoadingSalon = props => (
 
 const RenderSalon = props => (
     <div className={styles.salon}> {props.salon.map(post => post.subTitle)} </div>
-
 )
 
 const SalonPage = props => {

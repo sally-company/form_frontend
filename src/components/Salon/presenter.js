@@ -5,9 +5,6 @@ import device from "../../config/device";
 import color from "../../config/_color";
 
 class Salon extends Component {
-
-
-
     render() {
         return (
             <Container>

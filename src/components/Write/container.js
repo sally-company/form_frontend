@@ -4,14 +4,11 @@ import Write from './presenter'
 import axios from "axios";
 
 class Container extends Component {
-
-
     static propTypes = {
         uploadImage: PropTypes.func.isRequired
     }
 
     render() {
-
         return (
             <div>
                 <Write uploadImage={this._handleUploadImage}/>

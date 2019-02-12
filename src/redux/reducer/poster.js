@@ -34,9 +34,7 @@ function uploadImage(image) {
                 console.log(data)
                 return { data: { link: "http://dummy_image_src.com" }};
             })
-            .catch(err =>
-                console.log(err)
-            );
+            .catch(err => console.log(err));
 
 
     // return () =>{
@@ -62,16 +60,14 @@ function uploadImage(image) {
 function getSalon() {
     return (dispatch) => {
          axios.get('/salons/')
-            .then(res => {
-
-                dispatch(setSalon(res.data.result))
-
-            })
-            .catch(err =>
-                dispatch({
-                    payload: err.response.data
-                })
-            );
+            // .then(res => {
+            //     dispatch(setSalon(res.data.result))
+            // })
+            // .catch(err =>
+            //     dispatch({
+            //         payload: err.response.data
+            //     })
+            // );
     }
 }
 
