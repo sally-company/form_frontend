@@ -16,6 +16,7 @@ import Backdrop from "components/Backdrop"
 
 import './styles.module.scss';
 import Write from '../Write/presenter';
+import AdminLoginForm from "components/AdminLoginForm";
 
 class App extends React.Component {
     state = {
@@ -37,7 +38,9 @@ class App extends React.Component {
         if (this.state.sideDrawerOpen) {
             backdrop = <Backdrop click={this._backdropClickHandler}/>
         }
-        
+        if (this.props.pathname === "/admin") {
+            return <Route path={`/admin`} component={AdminLoginForm}></Route>
+        }
         return (
             <>
                 <Header
@@ -81,6 +84,7 @@ const PrivateRoutes = props => (
         <Route path={`/host`} component={Host}></Route>
         <Route path={`/profile`} component={Profile}></Route>
         <Route path={`/write`} component={Write}></Route>
+        
     </Switch>
 );
 
@@ -94,6 +98,7 @@ const PublicRoutes = props =>(
         <Route path={`/magazine`} component={Magazine}></Route>
         <Route path={`/host`} component={Auth}></Route>
         <Route path={`/write`} component={Write}></Route>
+        
     </Switch>
 );
 

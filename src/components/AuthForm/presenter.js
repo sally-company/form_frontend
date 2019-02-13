@@ -30,7 +30,7 @@ const SexContainer = (props) => {
             <Radio type={`radio`} value={`male`} name={`sex`}/>
             <RadioLabel>남자</RadioLabel>
             <Radio type={`radio`} value={`female`} name={`sex`}/>
-            <RadioLabel>여자</RadioLabel>
+            <RadioLabel>여자</RadioLabel>`
         </Container>
     )
 }
